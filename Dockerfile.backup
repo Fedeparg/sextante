@@ -1,7 +1,7 @@
-# Backup service image. Based on postgres:17-alpine to get a pg_dump of the SAME
+# Backup service image. Based on postgres:17.11-alpine to get a pg_dump of the SAME
 # major version as the server (avoids dump incompatibilities).
 # Adds gnupg (AES256 encryption) and rclone (upload to Google Drive).
-FROM postgres:17-alpine
+FROM postgres:17.11-alpine
 
 RUN apk add --no-cache gnupg rclone tzdata
 
