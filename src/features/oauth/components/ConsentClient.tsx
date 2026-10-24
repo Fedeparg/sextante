@@ -36,7 +36,9 @@ export default function ConsentClient({ clientId, scopes, authorizeParams, redir
     const result = await consent.run(() =>
       apiFetch("/api/oauth/consent", { method: "POST", body: { clientId, scopes } }),
     );
-    // Resume on OUR origin (not an open redirect): the AS will issue the code.
+    // Resume on OUR origin (not an open redirect): the AS will issue the code. A full
+    // navigation is required: `/authorize` is a rewrite to the API, not a Next page.
+    // eslint-disable-next-line @next/next/no-location-assign-relative-destination
     if (result.ok) window.location.assign(`/authorize?${authorizeParams}`);
   }
 
