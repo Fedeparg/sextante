@@ -29,7 +29,7 @@ x-api-image: &api-image
 
 services:
   postgres:
-    image: postgres:17-alpine
+    image: postgres:17.11-alpine
     restart: unless-stopped
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-sextante}
@@ -161,7 +161,7 @@ services:
   # Sextante's: that way neither the GDPR export/deletion nor the app backups mix it with
   # user data, and losing it compromises nothing (it holds aggregated metrics).
   analytics-db:
-    image: postgres:17-alpine
+    image: postgres:17.11-alpine
     restart: unless-stopped
     environment:
       POSTGRES_USER: umami
@@ -179,7 +179,7 @@ services:
   analytics:
     # Pinned version: the tracker and the send route (/api/send) are part of the
     # contract with next.config's rewrites; a version bump gets tested first.
-    image: ghcr.io/umami-software/umami:3.4.0
+    image: ghcr.io/umami-software/umami:3.4.1
     restart: unless-stopped
     init: true
     environment:

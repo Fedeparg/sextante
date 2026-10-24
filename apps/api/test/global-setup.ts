@@ -18,7 +18,7 @@ type Provide = (key: 'databaseUrl', value: string) => void;
  * At the end, it stops and removes the container.
  */
 export default async function setup({ provide }: { provide: Provide }) {
-  const container = await new PostgreSqlContainer('postgres:17-alpine').start();
+  const container = await new PostgreSqlContainer('postgres:17.11-alpine').start();
   const url = container.getConnectionUri();
 
   const client = postgres(url, { max: 1 });
