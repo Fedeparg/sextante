@@ -7,8 +7,9 @@
 # real (ci → deploy) and only a green commit gets deployed.
 #
 # Three details make the gate impossible to skip:
-#   1. Both `conclusion == 'success'` AND `head_branch == 'main'` are required. Without
-#      the latter, a green CI on a PR branch would trigger a production deployment.
+#   1. `conclusion == 'success'` AND `head_branch == 'main'` are required, plus a `push`
+#      event from this repository (see the job's `if`). Without them, a green CI on a PR
+#      branch, or on a fork's `main`, would trigger a production deployment.
 #   2. The checkout uses the CI run's `head_sha`, not the branch tip: if new commits
 #      landed while CI was running, EXACTLY what was validated gets deployed.
 #   3. `workflow_dispatch` is kept as a manual escape hatch (redeploy without touching
@@ -67,11 +68,17 @@ jobs:
     #   have no registered runner.
     # - `workflow_dispatch`: a manual trigger is accepted with no further checks (only
     #   someone with write access to the repo can launch it).
-    # - `workflow_run`: only if CI ended green AND it was the `main` branch.
+    # - `workflow_run`: only if CI ended green on a `push` to `main` of THIS repository.
+    #   `head_branch` alone is not enough: it is the branch name in the SOURCE repository,
+    #   so a fork PR from a branch called `main` would pass it once CI is approved and
+    #   deploy the attacker's `head_sha` on the server. Requiring `event == 'push'` and
+    #   `head_repository == github.repository` rules out PRs and forks.
     if: >-
       github.repository == 'Fedeparg/sextante' &&
       (github.event_name == 'workflow_dispatch' ||
        (github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.event == 'push' &&
+        github.event.workflow_run.head_repository.full_name == github.repository &&
         github.event.workflow_run.head_branch == 'main'))
     # BOTH labels: only matches the Sextante runner, not other runners.
     runs-on: [self-hosted, sextante]
