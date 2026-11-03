@@ -41,7 +41,7 @@ released under the [MIT licence](LICENSE), so anyone can study it and reuse it.
 
 | | |
 |---|---|
-| 🧮 **27 calculators** | Compound interest, FIRE with a Monte Carlo simulator over real market history, mortgages, deposits, dividends, DCA, inflation, budget… All run in the browser, need no account and keep every input in the URL. |
+| 🧮 **27 calculators** | Compound interest, FIRE with a Monte Carlo simulator over real market history, mortgages, deposits, dividends, DCA, inflation, budget... All run in the browser, need no account and keep every input in the URL. |
 | 🇪🇸 **Spanish tax engine** | IRPF by the AEAT dual-scale method with the regional scale of each common-regime community, Social Security, payroll withholding, self-employed, wealth tax, gift tax and capital gains (FIFO). |
 | 📈 **Aggregated portfolio** | Positions and lots across brokers, prices and FX, P&L, reconstructed history, Trade Republic import and progress towards a FIRE goal. |
 | 🧾 **Tax-return report** | Savings-base figures per tax year in euros at the ECB rate, the two-month rule, dividends and interest, double-taxation credit and the box of the Spanish return (modelo 100) for each figure. |
