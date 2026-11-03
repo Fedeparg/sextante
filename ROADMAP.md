@@ -13,8 +13,8 @@ Where Sextante is today, what's next, and what it deliberately won't do.
 | **27 calculators** — investing, FIRE, mortgages, savings, Spanish tax, debt | ✅ All live |
 | **Spanish tax engine** — IRPF (dual-scale AEAT approximation) with **per-region scales for the 15 common-regime communities**, Social Security, wealth tax, gift tax, self-employed | ✅ Live, unit-tested |
 | **Monte Carlo FIRE simulator** — thousands of market paths, success probability and percentile fan chart, seeded so results are reproducible; a **historical model** that block-bootstraps Shiller's real US stock and bond returns since 1871, and a success-by-withdrawal-rate table | ✅ Live |
-| **Bilingual UI** — Spanish (default) + English via `next-intl`, 1,260 keys per locale, parity enforced by test | ✅ Live |
-| **Wiki** — 33 articles (including a portfolio guide) + 27 calculator explainers, Markdown-driven, both locales, internal links kept in the reader's language | ✅ Live |
+| **Bilingual UI** — Spanish (default) + English via `next-intl`, 1,572 keys per locale, parity enforced by test | ✅ Live |
+| **Wiki** — 35 articles (including a portfolio guide) + 27 calculator explainers, Markdown-driven, both locales, internal links kept in the reader's language | ✅ Live |
 | **Passwordless auth** — magic link, SHA-256 hashed single-use tokens, JWT in an HttpOnly cookie | ✅ Live |
 | **Portfolio** — aggregated positions across brokers, **hourly price refresh on weekdays** plus the nightly close, FX conversion, P&L, "updated N minutes ago" | ✅ Live |
 | **Portfolio history** — purchase lots per position, one year of prices fetched on first sight, nightly valuation snapshots, evolution chart and breakdown by asset / broker / currency | ✅ Live |
@@ -25,7 +25,7 @@ Where Sextante is today, what's next, and what it deliberately won't do.
 | **FIRE goal on your real money** — the portfolio tracks progress towards your independence target and its Monte Carlo probability of success, sharing scenarios with the calculator; CSV export included | ✅ Live |
 | **FIRE milestone emails** — opt-in notice at 25/50/75/100 % of your goal, at most once per milestone, re-baselined when the goal changes, one-click unsubscribe (RFC 8058) with a signed, non-expiring link | ✅ Live |
 | **Changelog** — a public What's new page with one hand-written Markdown entry per release (`content/changelog/`) | ✅ Live |
-| **Remote MCP server** — 47 tools over Streamable HTTP: the portfolio, its realised gains by tax year, the tax-return report, dividends and interest, breakdown and FIRE goal progress, saved scenarios and **every calculator**, running the same `@sextante/core` code as the web. OAuth 2.1, per-tool scope step-up, per-token rate limit | ✅ Live |
+| **Remote MCP server** — 23 tools over Streamable HTTP: the portfolio, its realised gains by tax year, the tax-return report, dividends and interest, breakdown and FIRE goal progress, saved scenarios and **every calculator** (through two generic tools), running the same `@sextante/core` code as the web. OAuth 2.1, per-tool scope step-up, per-token rate limit | ✅ Live |
 | **GDPR tooling** — data export, account deletion with cascade, connected-app revocation | ✅ Live |
 | **SEO** — canonical URLs, hreflang, sitemap, JSON-LD, dynamic OG images | ✅ Live |
 | **Ops** — CI-gated deploy, Dockerized rootless containers, encrypted off-site Postgres backups verified as restorable before upload | ✅ Live |
