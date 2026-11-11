@@ -10,7 +10,7 @@
 # ---- Common base ----
 # Exact Node patch (same in the runtime stage): the deploy runs `up --build` without
 # `--pull`, so a floating `24-slim` would keep the cached base and never get runtime fixes.
-FROM node:24.22.1-slim AS base
+FROM node:24.22.2-slim AS base
 ENV CI=true
 RUN corepack enable
 # pnpm store at a fixed path so it can be mounted as a BuildKit cache: that way
@@ -69,7 +69,7 @@ COPY . .
 RUN pnpm build
 
 # ---- Runtime ----
-FROM node:24.22.1-slim AS runtime
+FROM node:24.22.2-slim AS runtime
 WORKDIR /app
 ENV NODE_ENV=production
 # The server listens on 0.0.0.0:3000 by default (Next standalone).
