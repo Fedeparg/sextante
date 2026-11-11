@@ -6,7 +6,7 @@
 # ---- Shared base ----
 # Exact Node patch (same in the runtime stage): the deploy runs `up --build` without
 # `--pull`, so a floating `24-slim` would keep the cached base and never get runtime fixes.
-FROM node:24.22.1-slim AS base
+FROM node:24.22.2-slim AS base
 ENV CI=true
 RUN corepack enable
 # pnpm store at a fixed path so it can be mounted as a BuildKit cache: that way
@@ -43,7 +43,7 @@ RUN rm -rf /app/deploy/src /app/deploy/test /app/deploy/vitest.config.ts \
     /app/deploy/*.tsbuildinfo /app/deploy/drizzle.config.ts
 
 # ---- Runtime ----
-FROM node:24.22.1-slim AS runtime
+FROM node:24.22.2-slim AS runtime
 WORKDIR /app
 ENV NODE_ENV=production
 
